@@ -1,0 +1,1 @@
+state = [cis(-theta/2)*state[0], cis(theta/2)*state[1]]

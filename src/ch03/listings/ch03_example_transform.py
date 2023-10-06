@@ -1,0 +1,5 @@
+s = init_state()
+transform(s, ry(2*pi/3))
+transform(s, x)
+transform(s, phase(pi/3))
+transform(s, h)

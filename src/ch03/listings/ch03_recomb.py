@@ -1,0 +1,1 @@
+state = [a*state[0] + b*state[1], c*state[0] + d*state[1]]

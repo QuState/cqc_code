@@ -1,0 +1,17 @@
+ch05_plot_wave                      # none
+ch05_plot_components                # none
+ch05_real_valued_sinusoids          # none
+ch05_encode_samples                 # none
+ch05_state_from_samples             # none
+ch05_cis                            # sim_core (repeat from before)
+ch05_geom                           # none
+ch05_geometric_sequence_circuit     # none but similar to qiskit fixed_value
+ch05_apply_h                        # none but similar to qiskit mental_model
+ch05_inner_product                  # none
+ch05_inner                          # none
+ch05_fourier_basis                  # none
+ch05_icft                           # none (TODO: correct?)
+ch05_bin_digit                      # none
+ch05_cft                            # none (TODO: correct?)
+ch05_qft_iqft                       # sim_qiskit under quantum circuit class
+ch05_classical_inverse_fourier      # none

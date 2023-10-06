@@ -1,0 +1,17 @@
+from math import pi
+from sim_circuit import QuantumRegister, QuantumCircuit
+
+def real_valued_sinusoids(n, v):
+    theta = v*pi/N
+
+    q = QuantumRegister(n)
+    a = QuantumRegister(1)
+    qc = QuantumCircuit(q, a) # ancilla is last qubit
+
+    for j in range(n):
+        qc.h(q[j])
+
+    for j in range(n):
+        qc.cry(2**j*theta, q[j], a[0])
+
+    return qc

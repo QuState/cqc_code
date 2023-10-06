@@ -2,6 +2,7 @@ from math import pi
 from sim_circuit import QuantumRegister, QuantumCircuit
 
 def real_valued_sinusoids(n, v):
+    N = 2**n
     theta = v*2*pi/N
 
     q = QuantumRegister(n)

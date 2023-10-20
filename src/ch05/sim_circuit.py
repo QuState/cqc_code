@@ -1,10 +1,10 @@
 from math import pi
 
-from src.ch04.sim_core import *
-from src.ch03.sim_gates import *
+from ch04.sim_core import *
+from ch03.sim_gates import *
 
-from src.ch04.sim_circuit import QuantumCircuit as QuantumCircuit4
-from src.ch04.sim_circuit import QuantumRegister as QuantumRegister4
+from ch04.sim_circuit import QuantumCircuit as QuantumCircuit4
+from ch04.sim_circuit import QuantumRegister as QuantumRegister4
 
 
 class QuantumRegister(QuantumRegister4):
@@ -62,17 +62,3 @@ class QuantumCircuit(QuantumCircuit4):
 
         if swap:
             self.mswap(targets)
-
-
-def test_ry():
-    q = QuantumRegister(3)
-    qc = QuantumCircuit(q)
-
-    for i in range(len(q)):
-        qc.ry(pi/3, q[i])
-
-    state = qc.run()
-
-
-if __name__ == "__main__":
-    test_ry()

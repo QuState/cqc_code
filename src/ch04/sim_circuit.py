@@ -1,7 +1,5 @@
-from math import pi
-
-from src.ch04.sim_core import *
-from src.ch03.sim_gates import *
+from ch04.sim_core import *
+from ch03.sim_gates import *
 
 
 class QuantumRegister:
@@ -31,13 +29,13 @@ class QuantumRegister:
 class QuantumTransformation:
     def __init__(self, gate, target, controls=[], name=None, arg=None):
         self.gate = gate
-        self.target= target
+        self.target = target
         self.controls = controls
         self.name = name
         self.arg = arg
 
 
-class QuantumCircuit():
+class QuantumCircuit:
     def __init__(self, *args):
         bits = 0
         regs = []
@@ -57,7 +55,6 @@ class QuantumCircuit():
     def report(self, name=None):
         if name is None:
             name = len(self.reports)
-        s = self.state
         report = (self.state.copy(), self.transformations, self.run().copy())
         self.reports[name] = report
         return report
@@ -69,7 +66,7 @@ class QuantumCircuit():
         self.transformations.append(QuantumTransformation(x, t, [], 'x'))
 
     def y(self, t):
-        self.transformations.append(QuantumTransformation(x, t, [], 'y'))
+        self.transformations.append(QuantumTransformation(y, t, [], 'y'))
 
     def z(self, t):
         self.transformations.append(QuantumTransformation(z, t, [], 'z'))
@@ -80,11 +77,11 @@ class QuantumCircuit():
     def p(self, theta, t):
         self.transformations.append(QuantumTransformation(phase(theta), t, [], 'p', theta))
 
-    def ry(self, theta, t):
-        self.transformations.append(QuantumTransformation(ry(theta), t, [], 'ry', theta))
-
     def rx(self, theta, t):
         self.transformations.append(QuantumTransformation(rx(theta), t, [], 'rx', theta))
+
+    def ry(self, theta, t):
+        self.transformations.append(QuantumTransformation(ry(theta), t, [], 'ry', theta))
 
     def rz(self, theta, t):
         self.transformations.append(QuantumTransformation(rz(theta), t, [], 'rz', theta))
@@ -93,10 +90,10 @@ class QuantumCircuit():
         self.transformations.append(QuantumTransformation(x, t, [c], 'cx'))
 
     def cy(self, c, t):
-        self.transformations.append(QuantumTransformation(x, t, [c], 'cy'))
+        self.transformations.append(QuantumTransformation(y, t, [c], 'cy'))
 
     def cz(self, c, t):
-        self.transformations.append(QuantumTransformation(x, t, [c], 'cz'))
+        self.transformations.append(QuantumTransformation(z, t, [c], 'cz'))
 
     def cp(self, theta, c, t):
         self.transformations.append(QuantumTransformation(phase(theta), t, [c], 'cp', theta))
@@ -121,13 +118,3 @@ class QuantumCircuit():
 
     def measure(self, shots):
         return measure(self.state, shots)
-
-
-def test_ry():
-    q = QuantumRegister(3)
-    qc = QuantumCircuit(q)
-
-    for i in range(len(q)):
-        qc.ry(pi/3, q[i])
-
-    state = qc.run()

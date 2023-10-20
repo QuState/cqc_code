@@ -1,6 +1,7 @@
-from math import log2, cos, sin, ceil, floor, isclose
+from math import log2, ceil, floor
 from random import choices
 from collections import Counter
+from ch04.util import is_close
 
 
 def is_power_of_two(m):
@@ -10,7 +11,7 @@ def is_power_of_two(m):
 def prepare_state(*a):
     state = [a[k] for k in range(len(a))]
     assert(is_power_of_two(len(state)))
-    assert(isclose(sum([abs(state[k])**2 for k in range(len(state))]), 1.0, rel_tol=1e-05))
+    assert(is_close(sum([abs(state[k])**2 for k in range(len(state))]), 1.0))
     return state
 
 
@@ -27,7 +28,7 @@ def is_bit_set(m, k):
 def pair_generator_check_digit(n, t):
     distance = int(2 ** t)
 
-    for k0 in range(2**n):
+    for k0 in range(2 ** n):
         if not is_bit_set(k0, t):
             k1 = k0 + distance
             yield k0, k1
@@ -41,21 +42,19 @@ def pair_generator_concatenate(n, t):
     for p in range(prefix_count):
         for s in range(suffix_count):
             k0 = p * suffix_count*2 + s
-            # the 1 side of the pair
             k1 = k0 + distance
-            # print("(%s, %s)" %(padded_bin(n, k0), padded_bin(n, k1)))
             yield k0, k1
 
 
 def pair_generator_pattern(n, t):
     distance = int(2 ** t)
 
-    for j in range(2**(n-t-1)):
+    for j in range(2 ** (n-t-1)):
         for k0 in range(2*j*distance, (2*j+1)*distance):
             k1 = k0 + distance
             yield k0, k1
 
-# TODO: check this is best place to define pair_generator
+
 pair_generator = pair_generator_concatenate
 
 
@@ -80,7 +79,7 @@ def c_transform(state, c, t, gate):
 
 
 def mc_transform(state, cs, t, gate):
-    assert not t in cs
+    assert t not in cs
     n = int(log2(len(state)))
     for (k0, k1) in filter(lambda p: all([is_bit_set(p[0], c) for c in cs]), pair_generator(n, t)):
         process_pair(state, gate, k0, k1)
@@ -92,7 +91,3 @@ def measure(state, shots):
     for (k, v) in Counter(samples).items():
         counts[k] = v
     return counts
-
-
-def cis(theta):
-    return cos(theta) + 1j*sin(theta)

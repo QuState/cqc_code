@@ -1,1 +1,0 @@
-sum(state1[k]*state2[k].conjugate() for k in range(len(state1)))

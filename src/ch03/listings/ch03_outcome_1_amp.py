@@ -1,1 +1,0 @@
-gate[1][0]*state[0] + gate[1][1]*state[1]

@@ -1,1 +1,0 @@
-state = [state[1], state[0]]

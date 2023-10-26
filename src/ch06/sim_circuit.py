@@ -1,5 +1,3 @@
-from math import pi
-
 from ch04.sim_core import *
 from ch03.sim_gates import *
 

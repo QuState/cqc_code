@@ -11,11 +11,14 @@
 
 #### Overview of contents and structure 
 
-.
+
+├── README.md
 ├── src                            # notebooks are designed to run from the src directory
-│   ├── chxx             
-│   │   ├── chxx.ipynb             # notebook with chapter code that can be used for experimentation
-│   │   ├── chxx_output.ipynb      # notebooks that show the output of notebooks called chxx.ipynb after being run
-│   │   ├── chxx_exercises.ipynb   # notebooks with chapter exercises and solutions
-│   │   ├── x.py                   # the source code introduced in each chapter
+│   ├── chXX
+│   │   ├── chXX.ipynb             # notebook with chapter code that can be used for experimentation
+│   │   ├── chXX_output.ipynb      # notebook with chapter code that can be used for experimentation
+│   │   ├── chXX_exercises.ipynb   # notebooks with chapter exercises and solutions
+│   │   └── x.py                   # the source code introduced in each chapter
 │   ├── ...
+
+

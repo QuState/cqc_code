@@ -12,6 +12,7 @@
 #### Overview of contents and structure 
 
 
+<pre>
 ├── README.md
 ├── src                            # notebooks are designed to run from the src directory
 │   ├── chXX
@@ -20,5 +21,5 @@
 │   │   ├── chXX_exercises.ipynb   # notebooks with chapter exercises and solutions
 │   │   └── x.py                   # the source code introduced in each chapter
 │   ├── ...
-
+</pre>
 

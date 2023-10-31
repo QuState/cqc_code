@@ -17,8 +17,8 @@
 ├── src                            # notebooks are designed to run from the src directory
 │   ├── chXX
 │   │   ├── chXX.ipynb             # notebook with chapter code that can be used for experimentation
-│   │   ├── chXX_output.ipynb      # notebook with chapter code that can be used for experimentation
-│   │   ├── chXX_exercises.ipynb   # notebooks with chapter exercises and solutions
+│   │   ├── chXX_output.ipynb      # notebook that includes the output of chXX.ipynb after being run (can be used for comparison)
+│   │   ├── chXX_exercises.ipynb   # notebook with chapter exercises and solutions
 │   │   └── x.py                   # the source code introduced in each chapter
 │   ├── ...
 </pre>

@@ -59,9 +59,6 @@ class QuantumCircuit:
         self.reports[name] = report
         return report
 
-    def compose(self, circuit):
-        self.transformations += circuit.transformations
-
     def x(self, t):
         self.transformations.append(QuantumTransformation(x, t, [], 'x'))
 
@@ -103,6 +100,9 @@ class QuantumCircuit:
 
     def mcx(self, cs, t):
         self.transformations.append(QuantumTransformation(x, t, cs))
+
+    def mcp(self, theta, cs, t):
+        self.transformations.append(QuantumTransformation(phase(theta), t, cs, 'mcp', theta))
 
     def run(self):
         for tr in self.transformations:

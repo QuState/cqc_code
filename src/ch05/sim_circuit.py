@@ -1,16 +1,19 @@
 from math import pi
 
-from ch04.sim_core import *
+from ch05.sim_core import *
 from ch03.sim_gates import *
 
-from ch04.sim_circuit import QuantumCircuit as QuantumCircuit4
 from ch04.sim_circuit import QuantumRegister as QuantumRegister4
+from ch04.sim_circuit import QuantumTransformation as QuantumTransformation4
+from ch04.sim_circuit import QuantumCircuit as QuantumCircuit4
 
 
 class QuantumRegister(QuantumRegister4):
-    def __init__(self, size, shift=0):
-        self.size = size
-        self.shift = shift
+    pass
+
+
+class QuantumTransformation(QuantumTransformation4):
+    pass
 
 
 class Swap:
@@ -44,6 +47,37 @@ class QuantumCircuit(QuantumCircuit4):
     def mswap(self, targets):
         for j in range(len(targets) // 2):
             self.swap(targets[j], targets[len(targets)-1-j])
+
+    def inverse(self):
+        qs = [QuantumRegister(size, 'q' if len(self.regs) == 1 else None) for size in self.regs]
+        qc = QuantumCircuit(*qs)
+
+        for tr in self.transformations[::-1]:
+            if isinstance(tr, Swap):
+                qc.swap(tr.i, tr.j)
+                continue
+
+            m = getattr(qc, tr.name)
+            cs = tr.controls
+
+            t = tr.target
+            reg = 0
+            while t >= self.regs[reg]:
+                t = t - self.regs[reg]
+                reg = reg + 1
+
+            if len(cs) == 0:
+                if tr.arg:
+                    m(-tr.arg, qs[reg][t])
+                else:
+                    m(qs[reg][t])
+            elif len(cs) == 1:
+                if tr.arg:
+                    m(-tr.arg, cs[0], qs[reg][t])
+                else:
+                    m(cs[0], qs[reg][t])
+
+        return qc
 
     def qft(self, targets, swap=True):
         for j in range(len(targets))[::-1]:

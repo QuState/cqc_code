@@ -19,6 +19,7 @@
 │   │   ├── chXX.ipynb             # notebook with chapter code that can be used for experimentation
 │   │   ├── chXX_output.ipynb      # notebook that includes the output of chXX.ipynb after being run (can be used for comparison)
 │   │   ├── chXX_exercises.ipynb   # notebook with chapter exercises and solutions
+│   │   ├── chXX_qiskit.ipynb      # notebook with examples run with Qiskit (starting in chapter 4)
 │   │   └── x.py                   # the source code introduced in each chapter
 │   ├── ...
 </pre>
@@ -49,7 +50,7 @@ state = qc.run()
 
 Output:
 
-![Example state table](images/ex_state_table.png)
+<img src="images/ex_state_table.png" width="50%">
 
 Running an exampy circuit using Qiskit:
 
@@ -78,4 +79,4 @@ state = qc.run()
 
 Output:
 
-![Example state table qiskit](images/ex_state_table_qiskit.png)
+<img src="images/ex_state_table_qiskit.png" width="50%">

@@ -37,14 +37,25 @@ Running an example circuit using our Python simulator:
 
 ```
 from sim_circuit import QuantumRegister, QuantumCircuit
+from math import pi
 
-q = QuantumRegister(3)
-qc = QuantumCircuit(q)
+def geometric_sequence_circuit(n, v):
+    theta = v*2*pi/2**n
 
-qc.h(q[0])
-qc.h(q[1])
-qc.mcx([q[0], q[1]], q[2])
+    q = QuantumRegister(n)
+    qc = QuantumCircuit(q)
 
+    for j in range(n):
+        qc.h(q[j])
+
+    for j in range(n):
+        qc.p(2 ** j * theta, q[j])
+
+    return qc
+    
+n = 3
+v = 1.7
+qc = geometric_sequence_circuit(n, v)
 state = qc.run()
 ```
 
@@ -67,13 +78,23 @@ def run(self):
 
 setattr(QuantumCircuit, 'run', run)
 
-q = QuantumRegister(3)
-qc = QuantumCircuit(q)
+def geometric_sequence_circuit(n, v):
+    theta = v*2*pi/2**n
 
-qc.h(q[0])
-qc.h(q[1])
-qc.mcx([q[0], q[1]], q[2])
+    q = QuantumRegister(n)
+    qc = QuantumCircuit(q)
 
+    for j in range(n):
+        qc.h(q[j])
+
+    for j in range(n):
+        qc.p(2 ** j * theta, q[j])
+
+    return qc
+    
+n = 3
+v = 1.7
+qc = geometric_sequence_circuit(n, v)
 state = qc.run()
 ```
 

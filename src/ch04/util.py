@@ -54,7 +54,7 @@ def to_table(s, decimals=4):
               (' + ' if round_state[k].imag >= 0 else ' - ') + str(abs(round_state[k].imag)).ljust(decimals+2, '0') + '*i',
               abs(s[k]),
               str(0 if s[k] == 0.0 else round(atan2(s[k].imag, s[k].real) / (2 * pi) * 360, 2)) + '\u00b0',
-              int(floor(16*abs(s[k])))*'\u2588',
+              int(floor(24*abs(s[k])))*'\u2588',
               abs(s[k])**2] for k in range(len(s))]
     table_r = [[round(x, decimals) if isinstance(x, float) else round(x.real, decimals) + 1j*round(x.imag, decimals) if isinstance(x, complex) else x for x in table[k]] for k in range(len(table))]
     return table_r

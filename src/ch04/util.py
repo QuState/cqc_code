@@ -77,8 +77,7 @@ def state_to_mpl_table(state, highlight=[]):
 
     tb.auto_set_font_size(False)
     tb.set_fontsize(12)
-    tb.auto_set_column_width(col=list(range(len(column_headers))))
-
+    tb.auto_set_column_width(col=[idx for idx in range(len(column_headers)) if column_headers[idx] != 'Amplitude Bar'])
 
     plt.axis('tight')
     plt.axis('off')
@@ -96,6 +95,9 @@ def state_to_mpl_table(state, highlight=[]):
     for row in range(n_rows):
         tb[row+1, bar_index].set_text_props(ha='left', size=16)
         tb[row+1, bar_index].get_text().set_color(complex_to_rgb(state[row]))
+
+    for row in range(n_rows + 1):
+        tb[row, bar_index].set_width(1)
 
     return plt
 

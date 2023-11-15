@@ -20,6 +20,7 @@ class Swap:
     def __init__(self, i, j):
         self.i = i
         self.j = j
+        self.name = 'swap'
 
     def __str__(self):
         return f'swap {self.i} {self.j}'

@@ -21,8 +21,32 @@ class Swap:
         self.i = i
         self.j = j
 
+    def __str__(self):
+        return f'swap {self.i} {self.j}'
+
 
 class QuantumCircuit(QuantumCircuit4):
+    
+    def report(self, name=None):
+        start_state = init_state(sum(self.regs))
+        tr_count = 0
+        for report in self.reports.values():
+            if report[3] > tr_count:
+                tr_count = report[3]
+                start_state = report[2]
+
+
+        qc = QuantumCircuit()
+        qc.regs = self.regs.copy()
+        qc.initialize(start_state.copy())
+        qc.transformations = self.transformations[tr_count:].copy()
+        end_state = qc.run()
+
+        if name is None:
+            name = len(self.reports)
+        report = (start_state, self.transformations[tr_count:len(self.transformations)].copy(), end_state, len(self.transformations))
+        self.reports[name] = report
+        return report
 
     def run(self):
         for tr in self.transformations:

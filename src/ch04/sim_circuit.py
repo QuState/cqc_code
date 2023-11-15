@@ -52,13 +52,6 @@ class QuantumCircuit:
     def initialize(self, state):
         self.state = state
 
-    def report(self, name=None):
-        if name is None:
-            name = len(self.reports)
-        report = (self.state.copy(), self.transformations, self.run().copy())
-        self.reports[name] = report
-        return report
-
     def x(self, t):
         self.transformations.append(QuantumTransformation(x, t, [], 'x'))
 

@@ -61,7 +61,7 @@ state = qc.run()
 
 Output:
 
-<img src="images/ex_state_table.png" width="50%">
+<img src="images/ex_state_table.png" width="70%">
 
 Running an exampy circuit using Qiskit:
 
@@ -100,4 +100,4 @@ state = qc.run()
 
 Output:
 
-<img src="images/ex_state_table_qiskit.png" width="50%">
+<img src="images/ex_state_table_qiskit.png" width="70%">

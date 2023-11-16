@@ -2,7 +2,11 @@
 
 This chapter presents the quantum phase estimation algorithm.
 
-<img src="qpe_circuit_diagram.png" width="70%">
+<img src="images/qpe_circuit_diagram.png" width="70%">
+
+Where QPE fits in the book plan:
+
+<img src="images/ch07_dependency_chart.png" width="70%">
 
 
 ### Insights

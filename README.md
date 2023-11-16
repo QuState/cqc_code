@@ -8,6 +8,10 @@
 * The notebooks only use code dependencies in the chapter they belong to
 * There will be a simulator, called Hume, that will put together all pieces, and will be usable as a standalone simulator
 
+The topics that will be covered in the chapters (roughly) from top to bottom:
+
+<img src="images/dependency_chart.png" width="70%">
+
 
 #### Overview of contents and structure 
 

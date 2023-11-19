@@ -6,7 +6,7 @@
 * The code uses minimal dependencies, in order to facilitate learning and ensure longevity
 * The code behind notebooks is built incrementally in each chapter following sound dependency management principles
 * The notebooks only use code dependencies in the chapter they belong to
-* There will be a simulator, called Hume, that will put together all pieces, and will be usable as a standalone simulator
+* There is a simulator, called Hume, that puts together all pieces, and is usable as a standalone simulator
 
 The topics that will be covered in the chapters (roughly) from bottom to top:
 

@@ -67,7 +67,7 @@ Output:
 
 <img src="images/ex_state_table.png" width="70%">
 
-Running an exampy circuit using Qiskit:
+Running an example circuit using Qiskit:
 
 ```
 import qiskit

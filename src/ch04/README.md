@@ -1,5 +1,10 @@
 # Multi-qubit systems
 
+The concepts covered in this chapter are highlighted in the dependency chart below. 
+This chapter covers the same concepts as in chapter 3 in the context of more that one qubit.
+
+<img src="images/ch04_dependency_chart.png" width="70%">
+
 ### Practitioner insights
 
 * Each qubit represents a digit in the possible measurement outcomes of the system. An n-qubit system has 2 to the power n possible outcomes.

@@ -1,5 +1,9 @@
 # Quantum Fourier transform
 
+The concepts introduced in this chapter are highlighted in the dependency chart below.
+
+<img src="images/ch05_dependency_chart.png" width="70%">
+
 ### Practitioner insights
 
 * Geometric sequence states are the equivalent of single-frequency signals (complex sinusoids) in digital signal processing.

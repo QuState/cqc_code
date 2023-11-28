@@ -7,7 +7,7 @@ Where QPE fits in the book plan:
 
 This chapter presents the quantum phase estimation algorithm.
 
-<img src="qpe_circuit_diagram.png" width="70%">
+<img src="images/qpe_circuit_diagram.png" width="70%">
 
 
 ### Insights

@@ -106,8 +106,8 @@ Output:
 
 <img src="images/ex_state_table_qiskit.png" width="70%">
 
-#### Hume tutorials 
+#### Hume experiments 
 
-The `src/tutorials` folder contains interactive mercury notebooks.
+The `src/experiments` folder contains interactive mercury notebooks.
 
 <img src="images/tutorial_discrete_sinc.png" width="70%">

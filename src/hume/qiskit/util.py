@@ -49,9 +49,19 @@ def hume_to_qiskit(regs, transformations):
     return qc
 
 
+def print_circuit(qc):
+    qc_qiskit = hume_to_qiskit(qc.regs, qc.transformations)
+    print(qc_qiskit)
+
+
+def draw_circuit(qc, format='mpl'):
+    qc_qiskit = hume_to_qiskit(qc.regs, qc.transformations)
+    return qc_qiskit.draw(format)
+
+
 def show_reports(qc):
     if not CONFIG.get_use_mpl():
-        CONFIG.mpl()
+        CONFIG.use_mpl()
 
     for idx, (name, report) in enumerate(qc.reports.items()):
         print('\n\n' + 50*'-')
@@ -67,3 +77,5 @@ def show_reports(qc):
 def same_as_qiskit(qc):
     qc_qiskit = hume_to_qiskit(qc.regs, qc.transformations)
     return all_close(qc.run(), qc_qiskit.run())
+
+

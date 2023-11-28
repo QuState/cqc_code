@@ -43,7 +43,7 @@ def hume_to_qiskit(regs, transformations):
 
 def show_reports(qc):
     if not CONFIG.get_use_mpl_tables():
-        CONFIG.mpl()
+        CONFIG.set_use_mpl_tables(True)
 
     for idx, (name, report) in enumerate(qc.reports.items()):
         print('\n\n' + 50*'-')

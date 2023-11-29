@@ -60,7 +60,6 @@ def hume_to_qiskit(regs, transformations):
     return qc
 
 
-
 def print_circuit(qc):
     qc_qiskit = hume_to_qiskit(qc.regs, qc.transformations)
     print(qc_qiskit)

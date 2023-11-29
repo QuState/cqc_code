@@ -55,7 +55,6 @@ def hume_to_qiskit(regs, transformations):
             if tr.arg:
                 m(tr.arg, cs, qs[reg][t])
             else:
-                print('tgt', qs[reg][t])
                 m(cs, qs[reg][t])
 
     return qc

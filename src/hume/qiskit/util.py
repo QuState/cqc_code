@@ -1,3 +1,5 @@
+from math import log2
+
 import qiskit
 from qiskit import QuantumRegister, QuantumCircuit, execute
 
@@ -23,6 +25,12 @@ def hume_to_qiskit(regs, transformations):
         if isinstance(tr, Swap):
             qc.swap(tr.i, tr.j)
             continue
+        if tr.name == 'unitary':
+            U = tr.gate
+            assert(U.shape[0] == U.shape[1])
+            m = int(log2(U.shape[0]))
+            qc.unitary(U, [i + tr.target for i in range(m)])
+            continue
 
         m = getattr(qc, tr.name)
         cs = tr.controls
@@ -44,9 +52,14 @@ def hume_to_qiskit(regs, transformations):
             else:
                 m(cs[0], qs[reg][t])
         else:
-            print('multiple controls', tr.name, cs)
+            if tr.arg:
+                m(tr.arg, cs, qs[reg][t])
+            else:
+                print('tgt', qs[reg][t])
+                m(cs, qs[reg][t])
 
     return qc
+
 
 
 def print_circuit(qc):
@@ -63,9 +76,14 @@ def show_reports(qc):
     if not CONFIG.get_use_mpl():
         CONFIG.use_mpl()
 
-    for idx, (name, report) in enumerate(qc.reports.items()):
+    reports = []
+
+    for (name, report) in qc.reports.items():
+        reports.append((name, report))
+
+    for idx, (name, report) in enumerate(reports[::-1]):
         print('\n\n' + 50*'-')
-        print(f'{idx + 1}. {name}')
+        print(f'{len(reports) - idx}. {name}')
         print(50*'-')
 
         qc_qiskit = hume_to_qiskit(qc.regs, report[1])

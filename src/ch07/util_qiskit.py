@@ -1,3 +1,5 @@
+from math import log2
+
 from qiskit import QuantumRegister, QuantumCircuit
 
 from ch05.sim_circuit import Swap
@@ -14,6 +16,12 @@ def hume_to_qiskit(regs, transformations):
     for tr in transformations:
         if isinstance(tr, Swap):
             qc.swap(tr.i, tr.j)
+            continue
+        if tr.name == 'unitary':
+            U = tr.gate
+            assert(U.shape[0] == U.shape[1])
+            m = int(log2(U.shape[0]))
+            qc.unitary(U, [i + tr.target for i in range(m)])
             continue
 
         m = getattr(qc, tr.name)
@@ -36,7 +44,10 @@ def hume_to_qiskit(regs, transformations):
             else:
                 m(cs[0], qs[reg][t])
         else:
-            print('multiple controls', tr.name, cs)
+            if tr.arg:
+                m(tr.arg, cs, qs[reg][t])
+            else:
+                m(cs, qs[reg][t])
 
     return qc
 

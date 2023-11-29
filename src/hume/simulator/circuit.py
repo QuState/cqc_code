@@ -114,7 +114,7 @@ class QuantumCircuit:
         self.transformations.append(QuantumTransformation(ry(theta), t, [c], 'cry', theta))
 
     def mcx(self, cs, t):
-        self.transformations.append(QuantumTransformation(x, t, cs))
+        self.transformations.append(QuantumTransformation(x, t, cs, 'mcx'))
 
     def mcp(self, theta, cs, t):
         self.transformations.append(QuantumTransformation(phase(theta), t, cs, 'mcp', theta))

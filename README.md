@@ -110,10 +110,13 @@ Output:
 
 The `src/experiments` folder contains interactive mercury notebooks.
 
-<img src="images/tutorial_discrete_sinc.png" width="70%">
-
 ##### Single-qubit experiments
 
 ![](images/single_qubit_experiments.png)
 
 [video](videos/single_qubit_experiments.mp4)
+
+##### Discrete sinc
+
+![](images/tutorial_discrete_sinc.png)
+

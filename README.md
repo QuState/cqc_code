@@ -116,7 +116,7 @@ The `src/experiments` folder contains interactive mercury notebooks.
 
 [video](videos/single_qubit_experiments.mp4)
 
-##### Discrete sinc
+##### Frequency encoding experiments
 
-![](images/tutorial_discrete_sinc.png)
+![](images/frequency_encoding_experiment.png)
 

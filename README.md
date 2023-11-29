@@ -114,7 +114,10 @@ The `src/experiments` folder contains interactive mercury notebooks.
 
 ##### Single-qubit experiments
 
-<video width="320" height="240" controls>
-  <source src="./images/single_qubit_experiments.mp4" type="video/mp4">
-</video>
+[//]: # (<video width="320" height="240" controls>)
 
+[//]: # (  <source src="images/single_qubit_experiments.mp4" type="video/mp4">)
+
+[//]: # (</video>)
+
+![single qubit experiments video](images/single_qubit_experiments.mp4)

@@ -108,7 +108,11 @@ Output:
 
 #### Hume tests
 
-Tests can be run with `pytest` from the `src` directoryFor example:
+Tests can be run with `pytest` from the `src` directory. For example:
+
+    python -m pytest hume --no-header  -qs
+
+Or a more specific test file:
 
     python -m pytest hume/tests/test_unitary.py --no-header  -qs
 

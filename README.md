@@ -106,6 +106,16 @@ Output:
 
 <img src="images/ex_state_table_qiskit.png" width="70%">
 
+#### Hume tests
+
+Tests can be run with `pytest` from the `src` directoryFor example:
+
+    python -m pytest hume/tests/test_unitary.py --no-header  -qs
+
+Or a more specific test:
+
+    python -m pytest hume/tests/test_util_qiskit.py::test_same_as_qiskit --no-header --no-summary -qs
+
 #### Hume experiments 
 
 The `src/experiments` folder contains interactive mercury notebooks.

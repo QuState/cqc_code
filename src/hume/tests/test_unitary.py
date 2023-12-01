@@ -16,6 +16,7 @@ def complex_sincd(n, v):
 
 
 def test_unitary():
+    CONFIG.use_mpl()
     n = 3
     theta = 4.7*pi/2**(n-1)
 

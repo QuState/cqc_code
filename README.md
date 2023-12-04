@@ -122,7 +122,7 @@ Or a more specific test:
 
 #### Hume experiments 
 
-The `src/experiments` folder contains interactive mercury notebooks.
+The `src/experiments` folder contains interactive mercury notebooks. The `src` folder needs to be added to the PYTHONPATH environment variable.
 
 ##### Single-qubit experiments
 

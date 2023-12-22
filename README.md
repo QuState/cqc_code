@@ -120,12 +120,6 @@ Or a more specific test:
 
     python -m pytest hume/tests/test_util_qiskit.py::test_same_as_qiskit --no-header --no-summary -qs
 
-#### Quantum assistant
-
-![](images/quanutm_assistant.png)
-
-[video](videos/quantum_assistant.mp4)
-
 #### Hume experiments 
 
 The `src/experiments` folder contains interactive mercury notebooks. The `src` folder needs to be added to the PYTHONPATH environment variable.
@@ -139,4 +133,12 @@ The `src/experiments` folder contains interactive mercury notebooks. The `src` f
 ##### Frequency encoding experiments
 
 ![](images/frequency_encoding_experiment.png)
+
+#### Quantum assistant
+
+A quantum assistant using OpenAI's Assistants API is being developed.
+
+![](images/quanutm_assistant.png)
+
+[video](videos/quantum_assistant.mp4)
 

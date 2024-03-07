@@ -119,8 +119,10 @@ class QuantumCircuit:
     def mcp(self, theta, cs, t):
         self.transformations.append(QuantumTransformation(phase(theta), t, cs, 'mcp', theta))
 
-    def measure(self, shots):
-        return measure(self.state, shots)
+    def measure(self, shots = 0):
+        state = self.run()
+        samples = measure(state, shots)
+        return {'state vector': state, 'counts': samples}
 
     # CHAPTER 5 EXTENSION:
     def report(self, name=None):
